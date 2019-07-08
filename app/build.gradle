@@ -27,8 +27,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":base");
-    if (!rootProject.ext.taskIndependent) {
-//        dependentImplementation project(path: ':task', configuration: 'dependentDebug');
-        implementation project(":task");
+
+    //需要依赖的module
+    rootProject.ext.appDependencies.each { v ->
+        if (rootProject.ext.runModule != v) {
+            //当前运行的module无法依赖
+            implementation project(":$v")
+        }
     }
 }

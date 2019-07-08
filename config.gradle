@@ -6,7 +6,9 @@ ext {
     versionCode = 1
     versionName = "1.0"
 
-    taskIndependent = false
+    runModule = "task"
+    appDependencies = ["task"] //app运行时需要依赖的module
+    taskDependencies = [] //task运行时需要依赖的module
 
-//    appDependencies = ["task"]
+    runDependencies = this["${runModule}Dependencies"] //运行的module需要的依赖module
 }
