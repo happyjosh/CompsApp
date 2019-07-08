@@ -1,5 +1,5 @@
 //def isIndependent = !rootProject.ext.runDependencies.contains("task")
-def isIndependent = rootProject.ext.runModule == "customer" //当前module是否正在独立运行
+def isIndependent = rootProject.ext.runModule == "setting" //当前module是否正在独立运行
 
 if (isIndependent) {
     apply plugin: 'com.android.application'
@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         if (isIndependent) {
-            applicationId "com.example.aaron.compsapp.customer"
+            applicationId "com.example.aaron.compsapp.setting"
         }
 
         minSdkVersion rootProject.ext.minSdkVersion
@@ -55,7 +55,7 @@ dependencies {
     implementation project(":base")
 
     //需要依赖的module
-    rootProject.ext.customerDependencies.each { v ->
+    rootProject.ext.settingDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
             implementation project(":$v")
