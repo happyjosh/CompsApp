@@ -8,6 +8,9 @@ import android.app.Application
  */
 fun initDepsModules(runApp: Application, moduleNames: Array<String>) {
     moduleNames.forEach {
+        if (ModuleLifecycle.isInitedModule(it)) {
+            return
+        }
         val module: IModule = Class.forName("${BuildConfig.APP_PKG}.${it}.MyModule").newInstance() as IModule
         module.initModule(runApp)
     }
