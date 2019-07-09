@@ -1,4 +1,6 @@
 ext {
+    applicationId = "com.example.aaron.compsapp"
+
     compileSdkVersion = 28
 
     minSdkVersion = 23
@@ -6,11 +8,34 @@ ext {
     versionCode = 1
     versionName = "1.0"
 
-    runModule = "setting"
+    runModule = "task"
     appDependencies = ["task", "customer"] //app运行时需要依赖的module
     taskDependencies = ["customer"] //task运行时需要依赖的module
     customerDependencies = [] //task运行时需要依赖的module
     settingDependencies = ["task", "customer"] //task运行时需要依赖的module
 
     runDependencies = this["${runModule}Dependencies"] //运行的module需要的依赖module
+}
+
+
+def static getDependenciesStr(List ds) {
+    StringBuilder sb = new StringBuilder();
+
+//    ds.stream().forEach({ d -> sb.append("\"").append(d) })
+
+    for (int i = 0; i < ds.size(); i++) {
+        if (i == 0) {
+            sb.append("{");
+        }
+
+        sb.append("\"").append(ds.get(i)).append("\"");
+
+        if (i == ds.size() - 1) {
+            sb.append("}");
+        } else {
+            sb.append(",")
+        }
+    }
+
+    return sb.toString();
 }

@@ -28,3 +28,25 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+def static getDependenciesStr(List ds) {
+    StringBuilder sb = new StringBuilder();
+
+//    ds.stream().forEach({ d -> sb.append("\"").append(d) })
+
+    for (int i = 0; i < ds.size(); i++) {
+        if (i == 0) {
+            sb.append("{");
+        }
+
+        sb.append("\"").append(ds.get(i)).append("\"");
+
+        if (i == ds.size() - 1) {
+            sb.append("}");
+        } else {
+            sb.append(",")
+        }
+    }
+
+    return sb.toString();
+}
