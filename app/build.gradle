@@ -15,6 +15,9 @@ android {
         versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(rootProject.ext.appDependencies))
+
     }
     buildTypes {
         release {
@@ -32,7 +35,7 @@ dependencies {
     rootProject.ext.appDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
-            implementation project(":$v")
+            runtimeOnly project(":$v")
         }
     }
 }

@@ -7,7 +7,9 @@ import com.example.aaron.compsapp.base.BaseApp
  * Created by jph on 2019-07-08.
  */
 class MyApp : BaseApp() {
+    private val module = MyModule();
+
     override fun initModule(app: Application) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        module.initModule(app)
     }
 }

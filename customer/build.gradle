@@ -1,4 +1,3 @@
-//def isIndependent = !rootProject.ext.runDependencies.contains("task")
 def isIndependent = rootProject.ext.runModule == "customer" //当前module是否正在独立运行
 
 if (isIndependent) {
@@ -22,6 +21,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
+
+        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(rootProject.ext.customerDependencies))
     }
 
     buildTypes {
@@ -58,7 +59,7 @@ dependencies {
     rootProject.ext.customerDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
-            implementation project(":$v")
+            runtimeOnly project(":$v")
         }
     }
 }

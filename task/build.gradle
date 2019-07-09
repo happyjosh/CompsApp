@@ -1,4 +1,4 @@
-apply from: "${rootProject.file('config.gradle')}"
+//apply from: "${rootProject.file('config.gradle')}"
 def isIndependent = rootProject.ext.runModule == "task" //当前module是否正在独立运行
 
 if (isIndependent) {
@@ -23,7 +23,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
-        buildConfigField("String[]", "TASK_DEPENDENCIES", getDependenciesStr(rootProject.ext.taskDependencies))
+        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(rootProject.ext.taskDependencies))
     }
 
     buildTypes {
@@ -80,7 +80,7 @@ task jph {
 //    rootProject.ext.test.each { key, value -> println key }
 //    println isDependent
 //    rootProject.ext.runDependencies.each { v -> println v }
-//    println getDependenciesStr(rootProject.ext.taskDependencies)
+//    println getDependenciesStr(rootProject.ext.customerDependencies)
     println "------"
 
 }
