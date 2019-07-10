@@ -4,9 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.facade.annotation.Autowired
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.example.aaron.compsapp.base.BaseActivity
 
-class TaskActivity : AppCompatActivity() {
+@Route(path = "/task/main")
+class TaskActivity : BaseActivity() {
+
+    @Autowired
+    @JvmField
+    var level: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +21,8 @@ class TaskActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.task_btn_to_details)
         btn.setOnClickListener { v -> toDetails(v) }
+
+        btn.setText("toDetails_$level")
     }
 
     private fun toDetails(v: View) {

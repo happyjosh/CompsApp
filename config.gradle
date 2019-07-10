@@ -14,4 +14,6 @@ ext {
     taskDependencies = ["customer"] //task运行时需要依赖的module
     customerDependencies = [] //task运行时需要依赖的module
     settingDependencies = ["task", "customer"] //task运行时需要依赖的module
+
+    arouter_compiler_version = "1.2.2"
 }

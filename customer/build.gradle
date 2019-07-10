@@ -9,6 +9,7 @@ if (isIndependent) {
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -25,6 +26,13 @@ android {
         versionName rootProject.ext.versionName
 
         buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
+
+        //其他组件module依旧需要引入
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -74,4 +82,7 @@ dependencies {
             runtimeOnly project(":$v")
         }
     }
+
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
+    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler_version" //其他组件module依旧需要引入
 }
