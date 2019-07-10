@@ -1,3 +1,6 @@
+def moduleName = project.getName()
+def moduleDependencies = rootProject.ext["${moduleName}Dependencies"]
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -16,7 +19,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(rootProject.ext.appDependencies))
+        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
 
     }
     buildTypes {
@@ -32,7 +35,7 @@ dependencies {
     implementation project(":base");
 
     //需要依赖的module
-    rootProject.ext.appDependencies.each { v ->
+    moduleDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
             runtimeOnly project(":$v")

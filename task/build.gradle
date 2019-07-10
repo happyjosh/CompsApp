@@ -1,5 +1,7 @@
 //apply from: "${rootProject.file('config.gradle')}"
-def isIndependent = rootProject.ext.runModule == "task" //当前module是否正在独立运行
+def moduleName = project.getName()
+def isIndependent = rootProject.ext.runModule == moduleName //当前module是否正在独立运行
+def moduleDependencies = rootProject.ext["${moduleName}Dependencies"]
 
 if (isIndependent) {
     apply plugin: 'com.android.application'
@@ -15,7 +17,7 @@ android {
 
     defaultConfig {
         if (isIndependent) {
-            applicationId "com.example.aaron.compsapp.task"
+            applicationId "${rootProject.ext.applicationId}.${moduleName}"
         }
 
         minSdkVersion rootProject.ext.minSdkVersion
@@ -23,7 +25,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
-        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(rootProject.ext.taskDependencies))
+        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
     }
 
     buildTypes {
@@ -67,7 +69,7 @@ dependencies {
     implementation project(":base")
 
     //需要依赖的module
-    rootProject.ext.taskDependencies.each { v ->
+    moduleDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
             runtimeOnly project(":$v")
@@ -78,7 +80,8 @@ dependencies {
 task jph {
     println "------"
 //    rootProject.ext.test.each { key, value -> println key }
-//    println isDependent
+    println project.getName()
+    println rootProject.getName()
 //    rootProject.ext.runDependencies.each { v -> println v }
 //    println getDependenciesStr(rootProject.ext.customerDependencies)
     println "------"

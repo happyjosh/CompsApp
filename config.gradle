@@ -9,7 +9,7 @@ ext {
     versionName = "1.0"
 
     //app,task,customer,setting
-    runModule = "setting"
+    runModule = "app"
     appDependencies = ["task", "customer", "setting"] //app运行时需要依赖的module
     taskDependencies = ["customer"] //task运行时需要依赖的module
     customerDependencies = [] //task运行时需要依赖的module
