@@ -6,7 +6,7 @@
             android:allowBackup="true"
             android:supportsRtl="true">
         <activity android:name=".TaskActivity"/>
-        <activity android:name=".DetailsActivity"/>
+        <activity android:name=".details.DetailsActivity"/>
     </application>
 
 </manifest>

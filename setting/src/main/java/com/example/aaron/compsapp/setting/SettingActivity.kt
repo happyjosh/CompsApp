@@ -10,7 +10,7 @@ class SettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+        setContentView(R.layout.setting_activity_setting)
 
         val btn = findViewById<Button>(R.id.setting_btn_to_details)
         btn.setOnClickListener { v -> toDetails(v) }

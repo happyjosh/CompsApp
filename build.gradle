@@ -25,10 +25,29 @@ allprojects {
     }
 }
 
+subprojects {
+    afterEvaluate {
+        android {
+            resourcePrefix "${project.name}_"
+
+            dataBinding {
+                enabled = true;
+            }
+        }
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+
+
+/**
+ * 生成依赖库集合的字符串形式，用来自定义BuildConfig属性使用
+ * @param ds
+ * @return
+ */
 def static getDependenciesStr(List ds) {
     StringBuilder sb = new StringBuilder();
 

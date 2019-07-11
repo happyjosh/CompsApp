@@ -6,7 +6,6 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -43,8 +42,12 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     api 'com.alibaba:arouter-api:1.5.0'
-//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler_version" //其他组件module依旧需要引入
+
+    api "android.arch.lifecycle:extensions:$rootProject.ext.lifecycle_version"
+
+    kapt "android.arch.lifecycle:compiler:$rootProject.ext.lifecycle_version" //其他组件module依旧需要引入
+
 
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'androidx.test:runner:1.2.0'

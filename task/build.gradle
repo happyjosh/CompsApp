@@ -80,21 +80,13 @@ dependencies {
     moduleDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
-            runtimeOnly project(":$v")
+            implementation project(":$v")
         }
     }
 
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler_version" //其他组件module依旧需要引入
-}
 
-task jph {
-    println "------"
-//    rootProject.ext.test.each { key, value -> println key }
-//    println project.getName()
-//    println rootProject.getName()
-//    rootProject.ext.runDependencies.each { v -> println v }
-//    println getDependenciesStr(rootProject.ext.customerDependencies)
-    println "------"
+    kapt "android.arch.lifecycle:compiler:$rootProject.ext.lifecycle_version" //其他组件module依旧需要引入
 
 }

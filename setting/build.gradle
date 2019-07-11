@@ -79,7 +79,7 @@ dependencies {
     moduleDependencies.each { v ->
         if (rootProject.ext.runModule != v) {
             //当前运行的module无法依赖
-            runtimeOnly project(":$v")
+            implementation project(":$v")
         }
     }
 

@@ -8,6 +8,9 @@ ext {
     versionCode = 1
     versionName = "1.0"
 
+    arouter_compiler_version = "1.2.2"
+    lifecycle_version = "2.0.0"
+
     //app,task,customer,setting
     runModule = "app"
     appDependencies = ["task", "customer", "setting"] //app运行时需要依赖的module
@@ -15,5 +18,5 @@ ext {
     customerDependencies = [] //task运行时需要依赖的module
     settingDependencies = ["task", "customer"] //task运行时需要依赖的module
 
-    arouter_compiler_version = "1.2.2"
+//    kaptDeps = []
 }

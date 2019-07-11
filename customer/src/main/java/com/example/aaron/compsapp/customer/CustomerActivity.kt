@@ -10,7 +10,7 @@ class CustomerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_task)
+        setContentView(R.layout.customer_activity_task)
 
         val btn = findViewById<Button>(R.id.customer_btn_to_details)
         btn.setOnClickListener { v -> toDetails(v) }
