@@ -4,17 +4,17 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion sdkVersions.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        minSdkVersion sdkVersions.minSdkVersion
+        targetSdkVersion sdkVersions.targetSdkVersion
+        versionCode sdkVersions.versionCode
+        versionName sdkVersions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "APP_PKG", "\"${rootProject.ext.applicationId}\"")
+        buildConfigField("String", "APP_PKG", "\"${appPkg}\"")
 
         //其他组件module依旧需要引入
         kapt {
@@ -37,16 +37,16 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api 'androidx.appcompat:appcompat:1.0.2'
-    api 'androidx.core:core-ktx:1.0.2'
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api "androidx.appcompat:appcompat:$depVersions.appcompat"
+    api "androidx.core:core-ktx:$depVersions.core_ktx"
+    api "androidx.constraintlayout:constraintlayout:$depVersions.constraintlayout"
 
-    api 'com.alibaba:arouter-api:1.5.0'
-    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler_version" //其他组件module依旧需要引入
+    api "com.alibaba:arouter-api:$depVersions.arouter_api"
+    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler_version" //其他组件module依旧需要引入
 
-    api "android.arch.lifecycle:extensions:$rootProject.ext.lifecycle_version"
+    api "android.arch.lifecycle:extensions:$depVersions.lifecycle_version"
 
-    kapt "android.arch.lifecycle:compiler:$rootProject.ext.lifecycle_version" //其他组件module依旧需要引入
+    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle_version" //其他组件module依旧需要引入
 
 
 //    testImplementation 'junit:junit:4.12'

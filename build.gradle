@@ -40,26 +40,3 @@ subprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-
-
-/**
- * 生成依赖库集合的字符串形式，用来自定义BuildConfig属性使用
- * @param ds
- * @return
- */
-def static getDependenciesStr(List ds) {
-    StringBuilder sb = new StringBuilder();
-
-    sb.append("{");
-    for (int i = 0; i < ds.size(); i++) {
-
-        sb.append("\"").append(ds.get(i)).append("\"");
-
-        if (i != ds.size() - 1) {
-            sb.append(",")
-        }
-    }
-    sb.append("}");
-    return sb.toString();
-}

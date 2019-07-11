@@ -1,5 +1,5 @@
 def moduleName = project.getName()
-def moduleDependencies = rootProject.ext["${moduleName}Dependencies"]
+def moduleDependencies = moduleDeps["$moduleName"]
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -7,14 +7,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion sdkVersions.compileSdkVersion
     defaultConfig {
-        applicationId rootProject.ext.applicationId
+        applicationId appPkg
 
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        minSdkVersion sdkVersions.minSdkVersion
+        targetSdkVersion sdkVersions.targetSdkVersion
+        versionCode sdkVersions.versionCode
+        versionName sdkVersions.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -46,15 +46,15 @@ dependencies {
 
     //需要依赖的module
     moduleDependencies.each { v ->
-        if (rootProject.ext.runModule != v) {
+        if (runModule != v) {
             //当前运行的module无法依赖
             implementation project(":$v")
         }
     }
 
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
-    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler_version" //其他组件module依旧需要引入
+    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler_version" //其他组件module依旧需要引入
 
-    kapt "android.arch.lifecycle:compiler:$rootProject.ext.lifecycle_version" //其他组件module依旧需要引入
+    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle_version" //其他组件module依旧需要引入
 
 }

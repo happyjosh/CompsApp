@@ -1,6 +1,6 @@
 def moduleName = project.getName()
-def isIndependent = rootProject.ext.runModule == moduleName //当前module是否正在独立运行
-def moduleDependencies = rootProject.ext["${moduleName}Dependencies"]
+def isIndependent = runModule == moduleName //当前module是否正在独立运行
+def moduleDependencies = moduleDeps["$moduleName"]
 
 if (isIndependent) {
     apply plugin: 'com.android.application'
@@ -12,18 +12,18 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion sdkVersions.compileSdkVersion
 
 
     defaultConfig {
         if (isIndependent) {
-            applicationId "${rootProject.ext.applicationId}.${moduleName}"
+            applicationId "${appPkg}.${moduleName}"
         }
 
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode rootProject.ext.versionCode
-        versionName rootProject.ext.versionName
+        minSdkVersion sdkVersions.minSdkVersion
+        targetSdkVersion sdkVersions.targetSdkVersion
+        versionCode sdkVersions.versionCode
+        versionName sdkVersions.versionName
 
         buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
 
@@ -77,12 +77,12 @@ dependencies {
 
     //需要依赖的module
     moduleDependencies.each { v ->
-        if (rootProject.ext.runModule != v) {
+        if (runModule != v) {
             //当前运行的module无法依赖
             implementation project(":$v")
         }
     }
 
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
-    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler_version" //其他组件module依旧需要引入
+    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler_version" //其他组件module依旧需要引入
 }
