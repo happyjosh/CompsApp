@@ -2,9 +2,8 @@ ext {
     appPkg = "com.example.aaron.compsapp"
 
     //app,task,customer,setting
-    runModule = "app"
+    runModule = "task"
     allModules = ["app,task,customer,setting"]
-//    kaptdepVersions = []
 }
 
 def sdkVersions = [:]
@@ -39,12 +38,13 @@ moduleDeps.customer = [] //task运行时需要依赖的module
 moduleDeps.setting = ["task", "customer"] //task运行时需要依赖的module
 ext.moduleDeps = moduleDeps
 
-//def kaptDeps = [
-//        "com.alibaba:arouter-compiler:$depVersions.arouter_compiler",
-//        "android.arch.lifecycle:compiler:$depVersions.lifecycle",
-//        "com.google.dagger:dagger-compiler:$depVersions.dagger",
-//        "com.google.dagger:dagger-android-processor:$depVersions.dagger"
-//]
+def kaptDeps = [
+        "com.alibaba:arouter-compiler:$depVersions.arouter_compiler",
+        "android.arch.lifecycle:compiler:$depVersions.lifecycle",
+        "com.google.dagger:dagger-compiler:$depVersions.dagger",
+        "com.google.dagger:dagger-android-processor:$depVersions.dagger"
+]
+ext.kaptDeps = kaptDeps
 
 /**
  * 生成依赖库集合的字符串形式，用来自定义BuildConfig属性使用

@@ -20,13 +20,6 @@ android {
 
         buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
 
-        //其他组件module依旧需要引入
-        kapt {
-            arguments {
-                arg("AROUTER_MODULE_NAME", project.getName())
-            }
-        }
-
     }
     buildTypes {
         release {
@@ -51,10 +44,5 @@ dependencies {
             implementation project(":$v")
         }
     }
-
-//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
-    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler" //其他组件module依旧需要引入
-
-    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle" //其他组件module依旧需要引入
 
 }

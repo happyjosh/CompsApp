@@ -33,14 +33,22 @@ subprojects {
             dataBinding {
                 enabled = true;
             }
+
+            defaultConfig {
+                kapt {
+                    arguments {
+                        arg("AROUTER_MODULE_NAME", project.getName())
+                    }
+                }
+            }
         }
 
-//        dependencies {
-//            kaptDeps.each { v ->
-//                //当前运行的module无法依赖
-//                implementation v
-//            }
-//        }
+        dependencies {
+            kaptDeps.each { v ->
+                //当前运行的module无法依赖
+                kapt v
+            }
+        }
     }
 }
 
