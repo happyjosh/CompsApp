@@ -3,6 +3,7 @@ ext {
 
     //app,task,customer,setting
     runModule = "app"
+    allModules = ["app,task,customer,setting"]
 //    kaptdepVersions = []
 }
 
@@ -20,8 +21,15 @@ depVersions.constraintlayout = "1.1.3"
 depVersions.appcompat = "1.0.2"
 depVersions.core_ktx = "1.0.2"
 depVersions.arouter_api = "1.5.0"
-depVersions.arouter_compiler_version = "1.2.2"
-depVersions.lifecycle_version = "2.0.0"
+depVersions.arouter_compiler = "1.2.2"
+depVersions.lifecycle = "2.0.0"
+
+depVersions.rxjava = "2.2.10"
+depVersions.rxandroid = "2.1.1"
+depVersions.rxkotlin = "2.3.0"
+
+depVersions.retrofit = "2.6.0"
+depVersions.dagger = "2.23.2"
 ext.depVersions = depVersions
 
 def moduleDeps = [:]
@@ -31,6 +39,12 @@ moduleDeps.customer = [] //task运行时需要依赖的module
 moduleDeps.setting = ["task", "customer"] //task运行时需要依赖的module
 ext.moduleDeps = moduleDeps
 
+//def kaptDeps = [
+//        "com.alibaba:arouter-compiler:$depVersions.arouter_compiler",
+//        "android.arch.lifecycle:compiler:$depVersions.lifecycle",
+//        "com.google.dagger:dagger-compiler:$depVersions.dagger",
+//        "com.google.dagger:dagger-android-processor:$depVersions.dagger"
+//]
 
 /**
  * 生成依赖库集合的字符串形式，用来自定义BuildConfig属性使用

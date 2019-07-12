@@ -85,8 +85,8 @@ dependencies {
     }
 
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2' //其他组件module依旧需要引入
-    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler_version" //其他组件module依旧需要引入
+    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler" //其他组件module依旧需要引入
 
-    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle_version" //其他组件module依旧需要引入
+    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle" //其他组件module依旧需要引入
 
 }

@@ -34,6 +34,13 @@ subprojects {
                 enabled = true;
             }
         }
+
+//        dependencies {
+//            kaptDeps.each { v ->
+//                //当前运行的module无法依赖
+//                implementation v
+//            }
+//        }
     }
 }
 

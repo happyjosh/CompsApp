@@ -42,12 +42,26 @@ dependencies {
     api "androidx.constraintlayout:constraintlayout:$depVersions.constraintlayout"
 
     api "com.alibaba:arouter-api:$depVersions.arouter_api"
-    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler_version" //其他组件module依旧需要引入
+    kapt "com.alibaba:arouter-compiler:$depVersions.arouter_compiler" //其他组件module依旧需要引入
 
-    api "android.arch.lifecycle:extensions:$depVersions.lifecycle_version"
+    api "android.arch.lifecycle:extensions:$depVersions.lifecycle"
 
-    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle_version" //其他组件module依旧需要引入
+    kapt "android.arch.lifecycle:compiler:$depVersions.lifecycle" //其他组件module依旧需要引入
 
+    api "io.reactivex.rxjava2:rxjava:$depVersions.rxjava"
+    api "io.reactivex.rxjava2:rxandroid:$depVersions.rxandroid"
+    api "io.reactivex.rxjava2:rxkotlin:$depVersions.rxkotlin"
+
+    api "com.squareup.retrofit2:retrofit:$depVersions.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$depVersions.retrofit"
+    api "com.squareup.retrofit2:adapter-rxjava2:$depVersions.retrofit"
+
+
+    api "com.google.dagger:dagger:$depVersions.dagger"
+    kapt "com.google.dagger:dagger-compiler:$depVersions.dagger"
+    api "com.google.dagger:dagger-android:$depVersions.dagger"
+    api "com.google.dagger:dagger-android-support:$depVersions.dagger" // if you use the support libraries
+    kapt "com.google.dagger:dagger-android-processor:$depVersions.dagger"
 
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'androidx.test:runner:1.2.0'
