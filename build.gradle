@@ -32,7 +32,9 @@ subprojects {
         println "======================="
 
         android {
-            resourcePrefix "${project.name}_"
+            if (runnableModules.contains(project.name.toString())) {
+                resourcePrefix "${project.name}_"
+            }
 
             dataBinding {
                 enabled = true;
@@ -58,7 +60,7 @@ subprojects {
                 moduleDeps[project.name].each { v ->
                     if (runModule != v) {
                         //当前运行的module无法依赖
-                        runtimeOnly project(":$v")
+                        implementation project(":$v")
                     }
                 }
             }

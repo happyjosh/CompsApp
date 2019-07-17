@@ -2,7 +2,7 @@ ext {
     appPkg = "com.example.aaron.compsapp"
 
     //app,task,customer,setting
-    runModule = "app"
+    runModule = "task"
     runnableModules = ["app", "task", "customer", "setting"]
 }
 
