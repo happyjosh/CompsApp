@@ -68,12 +68,4 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":base")
-
-    //需要依赖的module
-    moduleDependencies.each { v ->
-        if (runModule != v) {
-            //当前运行的module无法依赖
-            implementation project(":$v")
-        }
-    }
 }

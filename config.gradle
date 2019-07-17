@@ -2,8 +2,8 @@ ext {
     appPkg = "com.example.aaron.compsapp"
 
     //app,task,customer,setting
-    runModule = "task"
-    allModules = ["app,task,customer,setting"]
+    runModule = "app"
+    runnableModules = ["app", "task", "customer", "setting"]
 }
 
 def sdkVersions = [:]

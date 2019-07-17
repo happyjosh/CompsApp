@@ -27,6 +27,10 @@ allprojects {
 
 subprojects {
     afterEvaluate {
+        println "======================="
+        println "subprojects afterEvaluate"
+        println "======================="
+
         android {
             resourcePrefix "${project.name}_"
 
@@ -48,10 +52,31 @@ subprojects {
                 //当前运行的module无法依赖
                 kapt v
             }
+
+            if (runnableModules.contains(project.name.toString())) {
+                //需要依赖的module
+                moduleDeps[project.name].each { v ->
+                    if (runModule != v) {
+                        //当前运行的module无法依赖
+                        runtimeOnly project(":$v")
+                    }
+                }
+            }
         }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task testx() {
+    doFirst(new Action<Task>() {
+        @Override
+        void execute(Task task) {
+            println "======================="
+            println "testx"
+            println "======================="
+        }
+    })
 }

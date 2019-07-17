@@ -9,8 +9,8 @@ import dagger.android.support.DaggerApplication
  * Created by jph on 2019-07-08.
  */
 class MyApp : BaseApp() {
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication>? {
+        return null
     }
 
     private val module = MyModule();
