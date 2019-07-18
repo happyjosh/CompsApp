@@ -1,6 +1,6 @@
 package com.example.aaron.compsapp.task.di
 
-import com.example.aaron.compsapp.task.MyApp
+import com.example.aaron.compsapp.base.BaseApp
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
@@ -21,5 +21,5 @@ interface TaskAppComponent {
 
 //    val appContext: Context
 
-    fun inject(app: MyApp)
+    fun inject(app: BaseApp)
 }
