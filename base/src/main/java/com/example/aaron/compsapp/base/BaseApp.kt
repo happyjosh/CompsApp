@@ -1,13 +1,13 @@
 package com.example.aaron.compsapp.base
 
+import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
-import dagger.android.support.DaggerApplication
 
 /**
  * 可独立运行的模块对应Application的基础类
  * Created by jph on 2019-07-08.
  */
-abstract class BaseApp : DaggerApplication(), IModule {
+abstract class BaseApp : Application(), IModule {
     override fun onCreate() {
         super.onCreate()
 

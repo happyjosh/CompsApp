@@ -15,3 +15,9 @@ fun initDepsModules(runApp: Application, moduleNames: Array<String>) {
         module.initModule(runApp)
     }
 }
+
+//fun getDepsBuildModuleClasses() {
+//    val x = arrayOf(1, 2)
+//
+//    val z = [...x]
+//}

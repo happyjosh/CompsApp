@@ -1,1 +1,2 @@
-include ':app', ':task', ':base', ':customer', ':setting'
+//include ':app', ':task', ':base', ':customer', ':setting'
+include ':app', ':task', ':base'
