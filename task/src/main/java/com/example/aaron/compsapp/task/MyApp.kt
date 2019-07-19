@@ -2,8 +2,6 @@ package com.example.aaron.compsapp.task
 
 import android.app.Application
 import com.example.aaron.compsapp.base.BaseApp
-import com.example.aaron.compsapp.task.di.AppModule
-import com.example.aaron.compsapp.task.di.DaggerTaskAppComponent
 
 
 /**
@@ -15,9 +13,8 @@ class MyApp : BaseApp() {
 
     override fun initModule(app: Application) {
         module.initModule(app)
-        DaggerTaskAppComponent.builder()
-            .appModule(AppModule(this))
-            .build()
-            .inject(this)
     }
+
+
+    override fun activityInjector() = module.activityInjector()
 }

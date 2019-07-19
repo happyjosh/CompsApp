@@ -6,7 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
-import com.example.aaron.compsapp.base.ServeFactory
+import com.example.aaron.compsapp.base.XAndroidInjection
 import com.example.aaron.compsapp.task.R
 import com.example.aaron.compsapp.task.databinding.TaskActivityDetailsBinding
 import dagger.android.AndroidInjection
@@ -27,6 +27,7 @@ class DetailsActivity : AppCompatActivity() {
     lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        XAndroidInjection.flag = "task"
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.task_activity_details)
@@ -37,7 +38,7 @@ class DetailsActivity : AppCompatActivity() {
 
 
         Log.i(TAG, "--------------")
-        Log.i(TAG, "customer count:${ServeFactory.customerServe?.getCustomerCount()}")
+//        Log.i(TAG, "customer count:${ServeFactory.customerServe?.getCustomerCount()}")
         Log.i(TAG, "---" + testDDetails.title)
         Log.i(TAG, "--------------")
 

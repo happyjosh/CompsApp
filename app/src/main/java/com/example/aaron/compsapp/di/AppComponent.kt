@@ -1,6 +1,6 @@
 package com.example.aaron.compsapp.di
 
-import com.example.aaron.compsapp.base.BaseApp
+import com.example.aaron.compsapp.MyModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
@@ -20,5 +20,5 @@ import dagger.android.support.AndroidSupportInjectionModule
 )
 interface AppComponent {
 
-    fun inject(app: BaseApp)
+    fun inject(app: MyModule)
 }
