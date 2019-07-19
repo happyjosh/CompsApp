@@ -23,7 +23,7 @@ class MyModule : IModule {
         Log.i("ZZZ", "--------------")
         Log.i("ZZZ", "init task")
         Log.i("ZZZ", "--------------")
-        ModuleLifecycle.moduleInited("task")
+        ModuleLifecycle.moduleInited(BuildConfig.MODULE_NAME)
 
         DaggerTaskAppComponent.builder()
             .appModule(AppModule(app))

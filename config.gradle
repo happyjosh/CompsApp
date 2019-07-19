@@ -33,7 +33,7 @@ ext.depVersions = depVersions
 
 def moduleDeps = [:]
 moduleDeps.app = ["task"] //app运行时需要依赖的module
-moduleDeps.task = [] //task运行时需要依赖的module
+moduleDeps.task = ["customer"] //task运行时需要依赖的module
 moduleDeps.customer = [] //task运行时需要依赖的module
 moduleDeps.setting = ["task", "customer"] //task运行时需要依赖的module
 ext.moduleDeps = moduleDeps

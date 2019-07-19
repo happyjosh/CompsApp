@@ -46,6 +46,14 @@ subprojects {
                         arg("AROUTER_MODULE_NAME", project.getName())
                     }
                 }
+
+
+                //是可运行的module
+                if (runnableModules.contains(project.name.toString())) {
+                    //在BuildConfig中存入依赖module数组
+                    buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDeps[project.name]))
+                    buildConfigField("String", "MODULE_NAME", "\"${project.name}\"")
+                }
             }
         }
 

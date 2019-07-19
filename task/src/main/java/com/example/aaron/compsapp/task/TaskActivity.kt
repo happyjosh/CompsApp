@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.example.aaron.compsapp.base.BaseActivity
 import com.example.aaron.compsapp.task.details.DetailsActivity
 
 @Route(path = "/task/main")

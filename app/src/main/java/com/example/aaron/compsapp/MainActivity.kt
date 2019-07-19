@@ -2,20 +2,15 @@ package com.example.aaron.compsapp
 
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
-import com.example.aaron.compsapp.base.XAndroidInjection
-import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var tm: TestM
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        XAndroidInjection.flag = "app"
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_activity_main)
 

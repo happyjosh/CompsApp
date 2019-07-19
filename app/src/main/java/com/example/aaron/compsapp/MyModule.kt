@@ -21,7 +21,7 @@ class MyModule : IModule {
         Log.i("ZZZ", "--------------")
         Log.i("ZZZ", "init app")
         Log.i("ZZZ", "--------------")
-        ModuleLifecycle.moduleInited("app")
+        ModuleLifecycle.moduleInited(BuildConfig.MODULE_NAME)
         initDepsModules(app, BuildConfig.MODULE_DEPENDENCIES);
 
 

@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 /**
  * Created by jph on 2019-07-10.
  */
-open class BaseActivity : AppCompatActivity() {
+open class BasicActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

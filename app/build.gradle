@@ -18,8 +18,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
-
     }
     buildTypes {
         release {

@@ -26,8 +26,6 @@ android {
         versionCode sdkVersions.versionCode
         versionName sdkVersions.versionName
 
-        buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDependencies))
-
     }
 
     buildTypes {
