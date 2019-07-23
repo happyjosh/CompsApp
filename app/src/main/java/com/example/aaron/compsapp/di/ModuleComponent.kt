@@ -3,6 +3,7 @@ package com.example.aaron.compsapp.di
 import com.example.aaron.compsapp.MyModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
 /**
@@ -10,7 +11,7 @@ import dagger.android.support.AndroidSupportInjectionModule
  */
 //@Singleton
 @Component(
-//    dependencies = [TaskAppComponent::class],
+//    dependencies = [ModuleComponent::class],
     modules = [
         AppModule::class,
         AndroidSupportInjectionModule::class,
@@ -18,7 +19,7 @@ import dagger.android.support.AndroidSupportInjectionModule
         BuildersModule::class
     ]
 )
-interface AppComponent {
+interface ModuleComponent : AndroidInjector<MyModule> {
 
-    fun inject(app: MyModule)
+//    fun inject(app: MyModule)
 }
