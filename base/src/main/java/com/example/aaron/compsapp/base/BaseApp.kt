@@ -2,6 +2,7 @@ package com.example.aaron.compsapp.base
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
+import timber.log.Timber
 
 /**
  * 可独立运行的模块对应Application的基础类
@@ -13,6 +14,7 @@ abstract class BaseApp : Application(), IModule {
         super.onCreate()
 
         initARouter()
+        initTimber()
 
         this.initModule(this)
     }
@@ -27,6 +29,12 @@ abstract class BaseApp : Application(), IModule {
         }
 
         ARouter.init(this)
+    }
+
+    private fun initTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 //
 //    //TODO

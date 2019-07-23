@@ -52,6 +52,8 @@ dependencies {
     api "com.google.dagger:dagger-android:$depVersions.dagger"
     api "com.google.dagger:dagger-android-support:$depVersions.dagger" // if you use the support libraries
 
+    api "com.jakewharton.timber:timber:$depVersions.timber"
+
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'androidx.test:runner:1.2.0'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

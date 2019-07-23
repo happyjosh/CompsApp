@@ -29,6 +29,9 @@ depVersions.rxkotlin = "2.3.0"
 
 depVersions.retrofit = "2.6.0"
 depVersions.dagger = "2.23.2"
+
+depVersions.timber = "4.7.1"
+
 ext.depVersions = depVersions
 
 def moduleDeps = [:]

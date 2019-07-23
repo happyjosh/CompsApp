@@ -2,7 +2,6 @@ package com.example.aaron.compsapp.task.details
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.example.aaron.compsapp.base.ServeFactory
@@ -10,10 +9,9 @@ import com.example.aaron.compsapp.task.BaseActivity
 import com.example.aaron.compsapp.task.R
 import com.example.aaron.compsapp.task.databinding.TaskActivityDetailsBinding
 import kotlinx.android.synthetic.main.task_activity_details.*
+import timber.log.Timber
 import javax.inject.Inject
 
-
-const val TAG: String = "TaskDetails"
 
 class DetailsActivity : BaseActivity() {
 
@@ -34,10 +32,10 @@ class DetailsActivity : BaseActivity() {
         )
 
 
-        Log.i(TAG, "--------------")
-        Log.i(TAG, "customer count:${ServeFactory.customerServe?.getCustomerCount()}")
-        Log.i(TAG, "---" + testDDetails.title)
-        Log.i(TAG, "--------------")
+        Timber.i("--------------")
+        Timber.i("customer count: %s", ServeFactory.customerServe?.getCustomerCount())
+        Timber.i("--- %s", testDDetails.title)
+        Timber.i("--------------")
 
         val taskDetailsVM = ViewModelProviders.of(this)
             .get(TaskDetailsVM::class.java)
@@ -47,7 +45,7 @@ class DetailsActivity : BaseActivity() {
 //        taskDetailsVM.taskDetails.observe(this, Observer { details_txt_title.text = it.title })
 
         details_btn_change.setOnClickListener {
-            Log.i("===========", "XXXXXXX")
+            Timber.i("XXXXXXX")
             taskDetailsVM.taskDetails.value = testDDetails
         }
     }
