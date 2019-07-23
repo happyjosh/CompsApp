@@ -3,6 +3,7 @@ package com.example.aaron.compsapp.task.details
 import android.content.Context
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.aaron.compsapp.base.ServeFactory
 import com.example.aaron.compsapp.task.BaseActivity
@@ -23,6 +24,9 @@ class DetailsActivity : BaseActivity() {
     @Inject
     lateinit var context: Context
 
+    @Inject
+    lateinit var vmFactory: ViewModelProvider.Factory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.task_activity_details)
@@ -37,7 +41,7 @@ class DetailsActivity : BaseActivity() {
         Timber.i("--- %s", testDDetails.title)
         Timber.i("--------------")
 
-        val taskDetailsVM = ViewModelProviders.of(this)
+        val taskDetailsVM = ViewModelProviders.of(this, vmFactory)
             .get(TaskDetailsVM::class.java)
         dataBinding.vm = taskDetailsVM
         dataBinding.lifecycleOwner = this
