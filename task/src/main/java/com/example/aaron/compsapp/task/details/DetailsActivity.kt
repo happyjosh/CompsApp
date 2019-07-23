@@ -12,6 +12,7 @@ import com.example.aaron.compsapp.task.databinding.TaskActivityDetailsBinding
 import kotlinx.android.synthetic.main.task_activity_details.*
 import timber.log.Timber
 import javax.inject.Inject
+import javax.inject.Named
 
 
 class DetailsActivity : BaseActivity() {
@@ -27,6 +28,9 @@ class DetailsActivity : BaseActivity() {
     @Inject
     lateinit var vmFactory: ViewModelProvider.Factory
 
+    @field:[Inject Named("jackName")]
+    lateinit var jackName: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.task_activity_details)
@@ -39,6 +43,7 @@ class DetailsActivity : BaseActivity() {
         Timber.i("--------------")
         Timber.i("customer count: %s", ServeFactory.customerServe?.getCustomerCount())
         Timber.i("--- %s", testDDetails.title)
+        Timber.i(jackName)
         Timber.i("--------------")
 
         val taskDetailsVM = ViewModelProviders.of(this, vmFactory)
