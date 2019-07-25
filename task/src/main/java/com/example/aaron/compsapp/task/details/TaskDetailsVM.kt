@@ -8,7 +8,9 @@ import javax.inject.Inject
 /**
  * Created by jph on 2019-07-10.
  */
-class TaskDetailsVM @Inject constructor(private val taskDetailsRepo: ITaskDetailsRepo) : ViewModel() {
+class TaskDetailsVM
+@Inject
+constructor(private val taskDetailsRepo: TaskDetailsRepo) : ViewModel() {
     var taskDetails = MutableLiveData<TaskDetailsM>()
 
 //    @Inject
