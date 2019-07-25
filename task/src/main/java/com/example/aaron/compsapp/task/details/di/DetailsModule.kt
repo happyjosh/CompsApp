@@ -8,7 +8,7 @@ import javax.inject.Named
 /**
  * Created by jph on 2019-07-16.
  */
-@Module()
+@Module
 class DetailsModule {
 
     @Provides
@@ -21,4 +21,5 @@ class DetailsModule {
     fun provideTitle(): String {
         return "Jack green"
     }
+
 }

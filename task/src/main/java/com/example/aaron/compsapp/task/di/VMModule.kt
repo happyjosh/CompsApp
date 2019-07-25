@@ -18,6 +18,7 @@ abstract class VMModule {
     @Binds
     abstract fun bindVMFactory(factory: VMFactory): ViewModelProvider.Factory
 
+
     @Binds
     @IntoMap
     @VMKey(TaskDetailsVM::class)

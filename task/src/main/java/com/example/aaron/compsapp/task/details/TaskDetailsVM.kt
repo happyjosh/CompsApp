@@ -8,11 +8,11 @@ import javax.inject.Inject
 /**
  * Created by jph on 2019-07-10.
  */
-class TaskDetailsVM @Inject constructor() : ViewModel() {
+class TaskDetailsVM @Inject constructor(private val taskDetailsRepo: ITaskDetailsRepo) : ViewModel() {
     var taskDetails = MutableLiveData<TaskDetailsM>()
 
-    @Inject
-    lateinit var taskDetailsRepo: TaskDetailsRepo
+//    @Inject
+//    lateinit var taskDetailsRepo: TaskDetailsRepo
 
     fun loadTaskDetails(id: Int) {
         taskDetailsRepo.loadTaskDetails(id).subscribe { taskDetails.value = it }
