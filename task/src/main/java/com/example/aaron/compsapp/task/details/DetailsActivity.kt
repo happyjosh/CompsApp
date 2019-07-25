@@ -19,8 +19,8 @@ class DetailsActivity : BaseActivity() {
 
 //    private lateinit var dataBinding: ActivityDetailsBinding
 
-    @Inject
-    lateinit var testDDetails: TaskDetailsM
+//    @Inject
+//    lateinit var testDDetails: TaskDetailsM
 
     @Inject
     lateinit var context: Context
@@ -42,7 +42,7 @@ class DetailsActivity : BaseActivity() {
 
         Timber.i("--------------")
         Timber.i("customer count: %s", ServeFactory.customerServe?.getCustomerCount())
-        Timber.i("--- %s", testDDetails.title)
+//        Timber.i("--- %s", testDDetails.title)
         Timber.i(jackName)
         Timber.i("--------------")
 
@@ -54,8 +54,9 @@ class DetailsActivity : BaseActivity() {
 //        taskDetailsVM.taskDetails.observe(this, Observer { details_txt_title.text = it.title })
 
         details_btn_change.setOnClickListener {
-            Timber.i("XXXXXXX")
-            taskDetailsVM.taskDetails.value = testDDetails
+            //            Timber.i("XXXXXXX")
+//            taskDetailsVM.taskDetails.value = testDDetails
+            taskDetailsVM.loadTaskDetails(2003)
         }
     }
 }

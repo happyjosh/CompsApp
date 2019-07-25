@@ -12,7 +12,6 @@ import javax.inject.Singleton
     includes = [VMModule::class]
 )
 class AppModule constructor(private val context: Context) {
-    //
     @Singleton
     @Provides
     fun provideContext(): Context {
