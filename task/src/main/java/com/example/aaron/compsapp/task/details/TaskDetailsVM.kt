@@ -1,7 +1,9 @@
 package com.example.aaron.compsapp.task.details
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.aaron.compsapp.base.BaseVM
+import com.trello.rxlifecycle3.kotlin.bindToLifecycle
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -10,13 +12,21 @@ import javax.inject.Inject
  */
 class TaskDetailsVM
 @Inject
-constructor(private val taskDetailsRepo: TaskDetailsRepo) : ViewModel() {
+constructor(private val taskDetailsRepo: TaskDetailsRepo) : BaseVM() {
     var taskDetails = MutableLiveData<TaskDetailsM>()
 
 //    @Inject
 //    lateinit var taskDetailsRepo: TaskDetailsRepo
 
+    //    @SuppressLint("CheckResult")
     fun loadTaskDetails(id: Int) {
-        taskDetailsRepo.loadTaskDetails(id).subscribe { taskDetails.value = it }
+        taskDetailsRepo.loadTaskDetails(id)
+            .bindToLifecycle(this)
+            .subscribe {
+                taskDetails.value = it
+                Timber.i("==================X")
+            }
+//            .addTo(CompositeDisposable())
     }
+
 }

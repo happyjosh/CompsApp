@@ -54,6 +54,11 @@ dependencies {
 
     api "com.jakewharton.timber:timber:$depVersions.timber"
 
+    api "com.trello.rxlifecycle3:rxlifecycle:$depVersions.rxlifecycle"
+    api "com.trello.rxlifecycle3:rxlifecycle-kotlin:$depVersions.rxlifecycle"
+    api "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle:$depVersions.rxlifecycle"
+    api "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$depVersions.rxlifecycle"
+
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'androidx.test:runner:1.2.0'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

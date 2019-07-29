@@ -32,6 +32,8 @@ depVersions.dagger = "2.23.2"
 
 depVersions.timber = "4.7.1"
 
+depVersions.rxlifecycle = "3.0.0"
+
 ext.depVersions = depVersions
 
 def moduleDeps = [:]
