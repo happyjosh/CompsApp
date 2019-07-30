@@ -56,7 +56,7 @@ ext.kaptDeps = kaptDeps
  * @param ds
  * @return
  */
-static def getDependenciesStr(List ds) {
+static def getDepsModuleStr(List ds) {
     StringBuilder sb = new StringBuilder();
 
     sb.append("{");
@@ -72,4 +72,4 @@ static def getDependenciesStr(List ds) {
     return sb.toString();
 }
 
-ext.getDependenciesStr = this.&getDependenciesStr
+ext.getDepsModuleStr = this.&getDepsModuleStr

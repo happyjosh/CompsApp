@@ -51,7 +51,7 @@ subprojects {
                 //是可运行的module
                 if (runnableModules.contains(project.name.toString())) {
                     //在BuildConfig中存入依赖module数组
-                    buildConfigField("String[]", "MODULE_DEPENDENCIES", getDependenciesStr(moduleDeps[project.name]))
+                    buildConfigField("String[]", "MODULE_DEPENDENCIES", getDepsModuleStr(moduleDeps[project.name]))
                     buildConfigField("String", "MODULE_NAME", "\"${project.name}\"")
                 }
             }
@@ -59,7 +59,6 @@ subprojects {
 
         dependencies {
             kaptDeps.each { v ->
-                //当前运行的module无法依赖
                 kapt v
             }
 
@@ -68,6 +67,7 @@ subprojects {
                 moduleDeps[project.name].each { v ->
                     if (runModule != v) {
                         //当前运行的module无法依赖
+//                        runtimeOnly project(":$v")
                         implementation project(":$v")
                     }
                 }
